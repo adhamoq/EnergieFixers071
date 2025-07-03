@@ -1,29 +1,28 @@
-"""
-Main application window with navigation and page management.
-"""
+# Improved root.py with better UI design and wider sidebar
+
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import tkinter as tk
 from tkinter import messagebox
 from config import Config, Colors
-from ui.pages.home import HomePage
-from ui.pages.volunteer import VolunteerPage
-from ui.pages.appointments import AppointmentsPage
-from ui.pages.visits import VisitsPage
-from ui.pages.links import LinksPage
-from ui.pages.settings import SettingsPage
+from ui.pages.home_page import HomePage
+from ui.pages.volunteer_page import VolunteerPage
+from ui.pages.appointments_page import AppointmentsPage
+from ui.pages.visits_page import VisitsPage
+from ui.pages.links_page import LinksPage
+from ui.pages.settings_page import SettingsPage
 import logging
 
 logger = logging.getLogger(__name__)
 
 class MainApplication:
-    """Main application window with navigation"""
+    """Main application window with improved navigation and styling"""
     
     def __init__(self):
-        # Create main window
+        # Create main window with modern theme
         self.root = ttk.Window(
             title=Config.WINDOW_TITLE,
-            themename="flatly",
+            themename="flatly",  # Using flatly theme for better contrast
             size=tuple(map(int, Config.WINDOW_GEOMETRY.split('x'))),
             minsize=Config.MIN_WINDOW_SIZE
         )
@@ -49,131 +48,234 @@ class MainApplication:
         logger.info("Main application window initialized")
     
     def setup_ui(self):
-        """Setup the main UI layout"""
-        # Configure main grid
+        """Setup the main UI layout with improved design"""
+        # Configure main grid - sidebar takes more space now
         self.root.columnconfigure(1, weight=1)
         self.root.rowconfigure(0, weight=1)
         
-        # Create sidebar
+        # Create wider sidebar
         self.create_sidebar()
         
         # Create main content area
         self.create_content_area()
     
     def create_sidebar(self):
-        """Create navigation sidebar"""
-        # Sidebar frame
-        self.sidebar = ttk.Frame(self.root, style="Sidebar.TFrame", width=200)
-        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=(0, 1))
+        """Create improved navigation sidebar - wider and more attractive"""
+        # Sidebar frame - much wider now (300px instead of 200px)
+        self.sidebar = ttk.Frame(self.root, style="Sidebar.TFrame", width=300)
+        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=(0, 2))
         self.sidebar.grid_propagate(False)
         
-        # Logo/Header section
-        header_frame = ttk.Frame(self.sidebar)
-        header_frame.pack(fill=X, padx=10, pady=20)
+        # Logo/Header section with better spacing
+        header_frame = ttk.Frame(self.sidebar, style="SidebarHeader.TFrame")
+        header_frame.pack(fill=X, padx=20, pady=30)
         
-        # Application title
+        # Application title with larger font and better color
         title_label = ttk.Label(
             header_frame,
             text="EnergieFixers071",
-            font=("Helvetica", 14, "bold"),
-            foreground=Colors.PRIMARY_GREEN
+            font=("Helvetica", 18, "bold"),
+            foreground=Colors.PRIMARY_GREEN,
+            background=Colors.SIDEBAR_BG,
+            style="SidebarTitle.TLabel"
         )
         title_label.pack()
         
         subtitle_label = ttk.Label(
             header_frame,
-            text="Volunteer Management",
-            font=("Helvetica", 9),
-            foreground=Colors.TEXT_SECONDARY
+            text="Volunteer Management System",
+            font=("Helvetica", 11),
+            foreground=Colors.TEXT_SECONDARY,
+            background=Colors.SIDEBAR_BG,
+            style="SidebarSubtitle.TLabel"
         )
-        subtitle_label.pack(pady=(0, 10))
+        subtitle_label.pack(pady=(5, 0))
         
-        # Navigation buttons
-        nav_frame = ttk.Frame(self.sidebar)
-        nav_frame.pack(fill=BOTH, expand=True, padx=10)
+        # Divider line
+        divider = ttk.Frame(header_frame, height=2, style="SidebarDivider.TFrame")
+        divider.pack(fill=X, pady=20)
         
-        # Navigation items
+        # Navigation buttons with better spacing and icons
+        nav_frame = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
+        nav_frame.pack(fill=BOTH, expand=True, padx=20)
+        
+        # Navigation items with better icons and descriptions
         self.nav_items = [
-            ("home", "🏠 Dashboard", HomePage),
-            ("volunteers", "👥 Volunteers", VolunteerPage),
-            ("appointments", "📅 Appointments", AppointmentsPage),
-            ("visits", "🏡 Visits", VisitsPage),
-            ("links", "🔗 Link Generator", LinksPage),
-            ("settings", "⚙️ Settings", SettingsPage)
+            ("home", "🏠", "Dashboard", "Overview and statistics", HomePage),
+            ("volunteers", "👥", "Volunteers", "Manage volunteer profiles", VolunteerPage),
+            ("appointments", "📅", "Appointments", "Scheduled appointments", AppointmentsPage),
+            ("visits", "🏡", "Visits", "Energy assessment visits", VisitsPage),
+            ("links", "🔗", "Link Generator", "Create pre-filled forms", LinksPage),
+            ("settings", "⚙️", "Settings", "Application settings", SettingsPage)
         ]
         
         self.nav_buttons = {}
-        for page_id, label, page_class in self.nav_items:
+        for page_id, icon, label, description, page_class in self.nav_items:
+            # Button container with padding
+            btn_container = ttk.Frame(nav_frame, style="Sidebar.TFrame")
+            btn_container.pack(fill=X, pady=3)
+            
+            # Main navigation button - much wider
             btn = ttk.Button(
-                nav_frame,
-                text=label,
+                btn_container,
+                text=f"{icon}  {label}",
                 command=lambda p=page_id: self.show_page(p),
-                style="Sidebar.TButton",
-                width=20
+                style="SidebarNav.TButton",
+                width=25  # Increased width
             )
-            btn.pack(fill=X, pady=2)
+            btn.pack(fill=X)
+            
+            # Description text
+            desc_label = ttk.Label(
+                btn_container,
+                text=description,
+                font=("Helvetica", 8),
+                foreground=Colors.TEXT_MUTED,
+                background=Colors.SIDEBAR_BG,
+                style="SidebarDesc.TLabel"
+            )
+            desc_label.pack(pady=(2, 8))
+            
             self.nav_buttons[page_id] = btn
         
-        # Footer section
-        footer_frame = ttk.Frame(self.sidebar)
-        footer_frame.pack(side=BOTTOM, fill=X, padx=10, pady=10)
+        # Footer section with better spacing
+        footer_frame = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
+        footer_frame.pack(side=BOTTOM, fill=X, padx=20, pady=20)
         
+        # Status indicator
+        status_frame = ttk.Frame(footer_frame, style="Sidebar.TFrame")
+        status_frame.pack(fill=X, pady=(0, 10))
+        
+        status_dot = ttk.Label(
+            status_frame,
+            text="●",
+            font=("Helvetica", 12),
+            foreground=Colors.SUCCESS,
+            background=Colors.SIDEBAR_BG
+        )
+        status_dot.pack(side=LEFT)
+        
+        status_label = ttk.Label(
+            status_frame,
+            text="System Online",
+            font=("Helvetica", 9),
+            foreground=Colors.TEXT_SECONDARY,
+            background=Colors.SIDEBAR_BG
+        )
+        status_label.pack(side=LEFT, padx=(5, 0))
+        
+        # Version info
         version_label = ttk.Label(
             footer_frame,
-            text=f"v{Config.APP_VERSION}",
+            text=f"Version {Config.APP_VERSION}",
             font=("Helvetica", 8),
-            foreground=Colors.TEXT_SECONDARY
+            foreground=Colors.TEXT_MUTED,
+            background=Colors.SIDEBAR_BG,
+            style="SidebarVersion.TLabel"
         )
         version_label.pack()
     
     def create_content_area(self):
-        """Create main content area"""
-        # Content frame
-        self.content_frame = ttk.Frame(self.root)
-        self.content_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+        """Create main content area with better styling"""
+        # Content frame with padding and background
+        self.content_frame = ttk.Frame(self.root, style="Content.TFrame")
+        self.content_frame.grid(row=0, column=1, sticky="nsew", padx=15, pady=15)
         self.content_frame.columnconfigure(0, weight=1)
         self.content_frame.rowconfigure(0, weight=1)
     
     def setup_styles(self):
-        """Setup custom styles"""
+        """Setup custom styles with improved colors and contrast"""
         style = ttk.Style()
         
-        # Sidebar styles
+        # Sidebar styles with better colors
         style.configure(
             "Sidebar.TFrame",
-            background=Colors.SURFACE,
+            background=Colors.SIDEBAR_BG,
+            relief="flat",
+            borderwidth=0
+        )
+        
+        style.configure(
+            "SidebarHeader.TFrame",
+            background=Colors.SIDEBAR_BG,
             relief="flat"
         )
         
         style.configure(
-            "Sidebar.TButton",
-            background=Colors.SURFACE,
+            "SidebarDivider.TFrame",
+            background=Colors.PRIMARY_GREEN
+        )
+        
+        # Navigation button styles
+        style.configure(
+            "SidebarNav.TButton",
+            background=Colors.SIDEBAR_BG,
             foreground=Colors.TEXT_PRIMARY,
             borderwidth=0,
             focuscolor="none",
-            font=("Helvetica", 10)
+            font=("Helvetica", 11, "normal"),
+            padding=(15, 12),
+            anchor="w"
         )
         
         style.map(
-            "Sidebar.TButton",
+            "SidebarNav.TButton",
             background=[
-                ("active", Colors.PRIMARY_GREEN),
-                ("pressed", Colors.SECONDARY_GREEN)
+                ("active", Colors.PRIMARY_GREEN_LIGHT),
+                ("pressed", Colors.PRIMARY_GREEN)
             ],
             foreground=[
-                ("active", "white"),
+                ("active", Colors.TEXT_PRIMARY),
                 ("pressed", "white")
             ]
         )
         
         # Active navigation button style
         style.configure(
-            "SidebarActive.TButton",
+            "SidebarNavActive.TButton",
             background=Colors.PRIMARY_GREEN,
             foreground="white",
             borderwidth=0,
             focuscolor="none",
-            font=("Helvetica", 10, "bold")
+            font=("Helvetica", 11, "bold"),
+            padding=(15, 12),
+            anchor="w"
+        )
+        
+        # Text label styles
+        style.configure(
+            "SidebarTitle.TLabel",
+            background=Colors.SIDEBAR_BG,
+            foreground=Colors.PRIMARY_GREEN,
+            font=("Helvetica", 18, "bold")
+        )
+        
+        style.configure(
+            "SidebarSubtitle.TLabel",
+            background=Colors.SIDEBAR_BG,
+            foreground=Colors.TEXT_SECONDARY,
+            font=("Helvetica", 11)
+        )
+        
+        style.configure(
+            "SidebarDesc.TLabel",
+            background=Colors.SIDEBAR_BG,
+            foreground=Colors.TEXT_MUTED,
+            font=("Helvetica", 8)
+        )
+        
+        style.configure(
+            "SidebarVersion.TLabel",
+            background=Colors.SIDEBAR_BG,
+            foreground=Colors.TEXT_MUTED,
+            font=("Helvetica", 8)
+        )
+        
+        # Content area style
+        style.configure(
+            "Content.TFrame",
+            background=Colors.BACKGROUND,
+            relief="flat"
         )
     
     def show_page(self, page_id):
@@ -186,7 +288,7 @@ class MainApplication:
             # Get or create page
             if page_id not in self.pages:
                 page_class = next(
-                    (pc for pid, _, pc in self.nav_items if pid == page_id), 
+                    (pc for pid, _, _, _, pc in self.nav_items if pid == page_id), 
                     None
                 )
                 if page_class:
@@ -217,9 +319,9 @@ class MainApplication:
         """Update navigation button styles"""
         for page_id, button in self.nav_buttons.items():
             if page_id == active_page:
-                button.configure(style="SidebarActive.TButton")
+                button.configure(style="SidebarNavActive.TButton")
             else:
-                button.configure(style="Sidebar.TButton")
+                button.configure(style="SidebarNav.TButton")
     
     def center_window(self):
         """Center the window on screen"""

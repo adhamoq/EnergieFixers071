@@ -1,0 +1,2 @@
+2025-07-03 03:06:38,570 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:06:38,571 - __main__ - ERROR - Application crashed: type object 'Config' has no attribute 'DATA_DIR'

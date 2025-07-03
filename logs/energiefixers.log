@@ -1,0 +1,19 @@
+2025-07-03 03:10:25,894 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:10:25,895 - __main__ - INFO - Initializing database...
+2025-07-03 03:10:25,900 - core.database - ERROR - Failed to initialize database: Error, database must be initialized before opening a connection.
+2025-07-03 03:10:25,900 - __main__ - ERROR - Failed to initialize database
+2025-07-03 03:10:25,901 - core.database - INFO - Database connection closed
+2025-07-03 03:13:23,304 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:13:23,346 - core.database - INFO - Database connection established successfully
+2025-07-03 03:13:23,374 - core.models - INFO - Created 3 database tables
+2025-07-03 03:13:23,375 - core.models - INFO - Creating dummy data...
+2025-07-03 03:13:23,382 - core.models - INFO - Created 7 volunteers and 3 visits
+2025-07-03 03:13:23,382 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:13:23,658 - root - ERROR - Application crashed: type object 'Colors' has no attribute 'SIDEBAR_BG'
+2025-07-03 03:13:23,661 - core.database - INFO - Database connection closed
+2025-07-03 03:15:18,301 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:15:18,339 - core.database - INFO - Database connection established successfully
+2025-07-03 03:15:18,346 - core.models - INFO - Created 3 database tables
+2025-07-03 03:15:18,346 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:15:19,567 - root - ERROR - Application crashed: type object 'Colors' has no attribute 'TEXT_MUTED'
+2025-07-03 03:15:19,570 - core.database - INFO - Database connection closed

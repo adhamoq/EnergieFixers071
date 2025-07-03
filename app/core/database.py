@@ -1,109 +1,65 @@
 """
-Database configuration and connection setup using Peewee ORM.
+Database initialization and management for EnergieFixers071.
 """
-import sqlite3
-from pathlib import Path
-from peewee import *
-from playhouse.sqlite_ext import SqliteExtDatabase
-from config import Config
 import logging
+from pathlib import Path
+from peewee import SqliteDatabase, DatabaseProxy
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize database connection
-database_path = Config.DATABASE_PATH
-db = SqliteExtDatabase(database_path, pragmas={
-    'journal_mode': 'wal',
-    'cache_size': -1024 * 64,  # 64MB cache
-    'foreign_keys': 1,
-    'ignore_check_constraints': 0,
-    'synchronous': 0
-})
-
-class BaseModel(Model):
-    """Base model class that all models should inherit from"""
-
-    class Meta:
-        database = db
+# Global database proxy - initialized once
+db = DatabaseProxy()
 
 def initialize_database():
-    """Initialize the database and create tables"""
+    """Initialize the SQLite database with proper error handling"""
     try:
-        # Ensure database directory exists
-        Path(database_path).parent.mkdir(parents=True, exist_ok=True)
-
-        # Connect to database
+        # Import config after module initialization to avoid circular imports
+        from config import Config
+        
+        # Ensure data directory exists
+        Config.ensure_directories()
+        
+        # Create the actual database connection
+        sqlite_db = SqliteDatabase(
+            str(Config.DATABASE_PATH),
+            pragmas={
+                'journal_mode': 'wal',
+                'cache_size': -1024 * 64,  # 64MB cache
+                'foreign_keys': 1,
+                'ignore_check_constraints': 0,
+                'synchronous': 0
+            }
+        )
+        
+        # Initialize the proxy with the actual database
+        db.initialize(sqlite_db)
+        
+        # Test the connection
         db.connect()
-
-        # Import all models here to ensure they're registered
-        from core.models import Volunteer, Visit, Appointment, Setting
-
-        # Create tables if they don't exist
-        db.create_tables([Volunteer, Visit, Appointment, Setting], safe=True)
-
-        logger.info(f"Database initialized at: {database_path}")
-
-        # Create default settings if they don't exist
-        create_default_settings()
-
+        logger.info("Database connection established successfully")
+        
+        # Import models only after database is initialized
+        from core.models import create_tables
+        
+        # Create tables
+        create_tables()
+        
+        logger.info(f"Database initialized successfully at {Config.DATABASE_PATH}")
         return True
-
+        
     except Exception as e:
-        logger.error(f"Database initialization failed: {e}")
+        logger.error(f"Failed to initialize database: {e}")
         return False
 
-def create_default_settings():
-    """Create default application settings"""
-    from core.models import Setting
-
-    default_settings = [
-        ('theme', 'flatly'),
-        ('auto_sync', 'true'),
-        ('sync_interval', '300'),  # 5 minutes
-        ('backup_enabled', 'true'),
-        ('last_sync', ''),
-        ('app_version', Config.APP_VERSION)
-    ]
-
-    for key, value in default_settings:
-        Setting.get_or_create(key=key, defaults={'value': value})
-
 def close_database():
-    """Close database connection"""
-    if not db.is_closed():
-        db.close()
-        logger.info("Database connection closed")
-
-def backup_database(backup_path=None):
-    """Create a backup of the database"""
-    if backup_path is None:
-        backup_dir = Path(database_path).parent / "backups"
-        backup_dir.mkdir(exist_ok=True)
-        from datetime import datetime
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_path = backup_dir / f"energiefixers_backup_{timestamp}.db"
-
+    """Close database connection safely"""
     try:
-        # Simple file copy for SQLite
-        import shutil
-        shutil.copy2(database_path, backup_path)
-        logger.info(f"Database backed up to: {backup_path}")
-        return backup_path
-    except Exception as e:
-        logger.error(f"Database backup failed: {e}")
-        return None
-
-# Database context manager
-class DatabaseManager:
-    """Context manager for database connections"""
-
-    def __enter__(self):
-        if db.is_closed():
-            db.connect()
-        return db
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if not db.is_closed():
+        if hasattr(db, 'obj') and db.obj and not db.obj.is_closed():
             db.close()
+        logger.info("Database connection closed")
+    except Exception as e:
+        logger.error(f"Error closing database: {e}")
+
+def get_database():
+    """Get the database instance"""
+    return db
