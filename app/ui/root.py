@@ -1,366 +1,380 @@
-# Improved root.py with better UI design and wider sidebar
-
+"""
+Enhanced main application window for EnergieFixers071
+with custom theme support (flatly_enhanced and darkly_enhanced),
+sidebar improvements, and robust error handling.
+"""
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import tkinter as tk
 from tkinter import messagebox
-from config import Config, Colors
-from ui.pages.home_page import HomePage
-from ui.pages.volunteer_page import VolunteerPage
-from ui.pages.appointments_page import AppointmentsPage
-from ui.pages.visits_page import VisitsPage
-from ui.pages.links_page import LinksPage
-from ui.pages.settings_page import SettingsPage
 import logging
+from core.theme_manager import ThemeManager
 
 logger = logging.getLogger(__name__)
 
 class MainApplication:
-    """Main application window with improved navigation and styling"""
-    
+    """Main application window with custom theming and improved sidebar."""
+
     def __init__(self):
-        # Create main window with modern theme
+        try:
+            # Initialize theme manager and register themes
+            self.theme_manager = ThemeManager()
+            if not self.theme_manager.initialize_themes():
+                raise Exception("Failed to initialize themes")
+
+            # Create main window with enhanced theme
+            self.create_window()
+            self.setup_variables()
+            self.setup_ui()
+            self.show_page("home")
+            self.center_window()
+
+            logger.info("Main application initialized with enhanced themes")
+
+        except Exception as e:
+            logger.error(f"Failed to initialize main application: {e}")
+            self.show_startup_error(e)
+
+    def create_window(self):
+        """Create main window with enhanced theme."""
+        from config import Config
+
         self.root = ttk.Window(
             title=Config.WINDOW_TITLE,
-            themename="flatly",  # Using flatly theme for better contrast
+            themename=self.theme_manager.current_theme,
             size=tuple(map(int, Config.WINDOW_GEOMETRY.split('x'))),
             minsize=Config.MIN_WINDOW_SIZE
         )
-        
-        # Configure window
-        self.root.iconify()  # Start minimized to avoid flashing
-        
-        # Initialize variables
+
+        # Update style reference
+        self.theme_manager.style = self.root.style
+        self.root.iconify()
+
+    def setup_variables(self):
         self.current_page = None
         self.pages = {}
-        
-        # Setup UI
-        self.setup_ui()
-        self.setup_styles()
-        
-        # Show home page by default
-        self.show_page("home")
-        
-        # Center window and show
-        self.center_window()
-        self.root.deiconify()
-        
-        logger.info("Main application window initialized")
-    
+        self.nav_buttons = {}
+
     def setup_ui(self):
-        """Setup the main UI layout with improved design"""
-        # Configure main grid - sidebar takes more space now
+        """Setup the main UI layout with enhanced styling."""
         self.root.columnconfigure(1, weight=1)
         self.root.rowconfigure(0, weight=1)
-        
-        # Create wider sidebar
         self.create_sidebar()
-        
-        # Create main content area
         self.create_content_area()
-    
+
     def create_sidebar(self):
-        """Create improved navigation sidebar - wider and more attractive"""
-        # Sidebar frame - much wider now (300px instead of 200px)
-        self.sidebar = ttk.Frame(self.root, style="Sidebar.TFrame", width=300)
-        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=(0, 2))
+        """Create enhanced sidebar with theme toggle."""
+        from config import Config
+
+        self.sidebar = ttk.Frame(
+            self.root,
+            style="Sidebar.TFrame",
+            width=Config.SIDEBAR_WIDTH
+        )
+        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=(0, 1))
         self.sidebar.grid_propagate(False)
-        
-        # Logo/Header section with better spacing
-        header_frame = ttk.Frame(self.sidebar, style="SidebarHeader.TFrame")
-        header_frame.pack(fill=X, padx=20, pady=30)
-        
-        # Application title with larger font and better color
+
+        self.create_sidebar_header()
+        self.create_theme_toggle()
+        self.create_navigation()
+        self.create_sidebar_footer()
+
+    def create_sidebar_header(self):
+        """Sidebar header with logo/title."""
+        from config import Theme
+
+        header_frame = ttk.Frame(self.sidebar)
+        header_frame.pack(fill=X, padx=15, pady=20)
+
         title_label = ttk.Label(
             header_frame,
             text="EnergieFixers071",
-            font=("Helvetica", 18, "bold"),
-            foreground=Colors.PRIMARY_GREEN,
-            background=Colors.SIDEBAR_BG,
-            style="SidebarTitle.TLabel"
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_LARGE, "bold"),
+            foreground=self.theme_manager.colors.PRIMARY
         )
         title_label.pack()
-        
+
         subtitle_label = ttk.Label(
             header_frame,
-            text="Volunteer Management System",
-            font=("Helvetica", 11),
-            foreground=Colors.TEXT_SECONDARY,
-            background=Colors.SIDEBAR_BG,
-            style="SidebarSubtitle.TLabel"
+            text="Volunteer Management",
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_SMALL),
+            foreground=self.theme_manager.colors.TEXT_SECONDARY
         )
-        subtitle_label.pack(pady=(5, 0))
-        
-        # Divider line
-        divider = ttk.Frame(header_frame, height=2, style="SidebarDivider.TFrame")
-        divider.pack(fill=X, pady=20)
-        
-        # Navigation buttons with better spacing and icons
-        nav_frame = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
-        nav_frame.pack(fill=BOTH, expand=True, padx=20)
-        
-        # Navigation items with better icons and descriptions
-        self.nav_items = [
-            ("home", "🏠", "Dashboard", "Overview and statistics", HomePage),
-            ("volunteers", "👥", "Volunteers", "Manage volunteer profiles", VolunteerPage),
-            ("appointments", "📅", "Appointments", "Scheduled appointments", AppointmentsPage),
-            ("visits", "🏡", "Visits", "Energy assessment visits", VisitsPage),
-            ("links", "🔗", "Link Generator", "Create pre-filled forms", LinksPage),
-            ("settings", "⚙️", "Settings", "Application settings", SettingsPage)
-        ]
-        
-        self.nav_buttons = {}
-        for page_id, icon, label, description, page_class in self.nav_items:
-            # Button container with padding
-            btn_container = ttk.Frame(nav_frame, style="Sidebar.TFrame")
-            btn_container.pack(fill=X, pady=3)
-            
-            # Main navigation button - much wider
-            btn = ttk.Button(
-                btn_container,
-                text=f"{icon}  {label}",
-                command=lambda p=page_id: self.show_page(p),
-                style="SidebarNav.TButton",
-                width=25  # Increased width
-            )
-            btn.pack(fill=X)
-            
-            # Description text
-            desc_label = ttk.Label(
-                btn_container,
-                text=description,
-                font=("Helvetica", 8),
-                foreground=Colors.TEXT_MUTED,
-                background=Colors.SIDEBAR_BG,
-                style="SidebarDesc.TLabel"
-            )
-            desc_label.pack(pady=(2, 8))
-            
-            self.nav_buttons[page_id] = btn
-        
-        # Footer section with better spacing
-        footer_frame = ttk.Frame(self.sidebar, style="Sidebar.TFrame")
-        footer_frame.pack(side=BOTTOM, fill=X, padx=20, pady=20)
-        
-        # Status indicator
-        status_frame = ttk.Frame(footer_frame, style="Sidebar.TFrame")
-        status_frame.pack(fill=X, pady=(0, 10))
-        
-        status_dot = ttk.Label(
-            status_frame,
-            text="●",
-            font=("Helvetica", 12),
-            foreground=Colors.SUCCESS,
-            background=Colors.SIDEBAR_BG
-        )
-        status_dot.pack(side=LEFT)
-        
+        subtitle_label.pack(pady=(0, 5))
+
         status_label = ttk.Label(
-            status_frame,
-            text="System Online",
-            font=("Helvetica", 9),
-            foreground=Colors.TEXT_SECONDARY,
-            background=Colors.SIDEBAR_BG
+            header_frame,
+            text="● Online",
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_SMALL),
+            foreground=self.theme_manager.colors.SUCCESS
         )
-        status_label.pack(side=LEFT, padx=(5, 0))
-        
-        # Version info
+        status_label.pack()
+
+    def create_theme_toggle(self):
+        """Theme toggle section for switching between flatly and darkly."""
+        theme_frame = ttk.Frame(self.sidebar)
+        theme_frame.pack(fill=X, padx=15, pady=10)
+
+        ttk.Label(
+            theme_frame,
+            text="Theme:",
+            font=("Segoe UI", 10, "bold"),
+            foreground=self.theme_manager.colors.TEXT_PRIMARY
+        ).pack(anchor="w")
+
+        self.theme_var = tk.StringVar(value=self.theme_manager.current_theme)
+        theme_names = self.theme_manager.get_theme_display_names()
+
+        for theme_id, display_name in theme_names.items():
+            ttk.Radiobutton(
+                theme_frame,
+                text=display_name,
+                variable=self.theme_var,
+                value=theme_id,
+                command=self.change_theme
+            ).pack(anchor="w", pady=2)
+
+    def change_theme(self):
+        """Handle theme change."""
+        new_theme = self.theme_var.get()
+        if new_theme != self.theme_manager.current_theme:
+            if self.theme_manager.apply_theme(new_theme):
+                self.refresh_ui_styling()
+                messagebox.showinfo("Theme Changed", f"Theme changed to {self.theme_manager.get_theme_display_names()[new_theme]}")
+            else:
+                messagebox.showerror("Theme Error", "Failed to change theme")
+                self.theme_var.set(self.theme_manager.current_theme)
+
+    def refresh_ui_styling(self):
+        """Refresh UI styling after theme change."""
+        try:
+            for page in getattr(self, 'pages', {}).values():
+                if hasattr(page, 'refresh_styling'):
+                    page.refresh_styling()
+        except Exception as e:
+            logger.error(f"Failed to refresh UI styling: {e}")
+
+    def create_navigation(self):
+        """Create navigation menu with improved layout."""
+        nav_frame = ttk.Frame(self.sidebar)
+        nav_frame.pack(fill=BOTH, expand=True, padx=15)
+
+        self.nav_items = [
+            ("home", "🏠 Dashboard", "Overview & Statistics", self.load_home_page),
+            ("volunteers", "👥 Volunteers", "Manage Volunteer Data", self.load_volunteer_page),
+            ("appointments", "📅 Appointments", "Calendar & Scheduling", self.load_appointments_page),
+            ("visits", "🏡 Visits", "Energy Assessment Records", self.load_visits_page),
+            ("links", "🔗 Link Generator", "Create Pre-filled Forms", self.load_links_page),
+            ("settings", "⚙️ Settings", "App Configuration", self.load_settings_page)
+        ]
+
+        for page_id, label, description, loader_func in self.nav_items:
+            self.create_nav_button(nav_frame, page_id, label, description, loader_func)
+
+    def create_nav_button(self, parent, page_id, label, description, loader_func):
+        """Create individual navigation button."""
+        from config import Theme
+
+        button_frame = ttk.Frame(parent)
+        button_frame.pack(fill=X, pady=2)
+
+        btn = ttk.Button(
+            button_frame,
+            text=label,
+            command=lambda: self.show_page(page_id),
+            style="Sidebar.TButton",
+            width=25
+        )
+        btn.pack(fill=X)
+
+        desc_label = ttk.Label(
+            button_frame,
+            text=description,
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_SMALL - 1),
+            foreground=self.theme_manager.colors.TEXT_MUTED
+        )
+        desc_label.pack(fill=X, padx=(10, 0))
+
+        self.nav_buttons[page_id] = btn
+
+    def create_sidebar_footer(self):
+        """Sidebar footer with version and status."""
+        from config import Config, Theme
+
+        footer_frame = ttk.Frame(self.sidebar)
+        footer_frame.pack(side=BOTTOM, fill=X, padx=15, pady=15)
+
         version_label = ttk.Label(
             footer_frame,
-            text=f"Version {Config.APP_VERSION}",
-            font=("Helvetica", 8),
-            foreground=Colors.TEXT_MUTED,
-            background=Colors.SIDEBAR_BG,
-            style="SidebarVersion.TLabel"
+            text=f"v{Config.APP_VERSION}",
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_SMALL),
+            foreground=self.theme_manager.colors.TEXT_MUTED
         )
         version_label.pack()
-    
+
+        status_label = ttk.Label(
+            footer_frame,
+            text="Ready",
+            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_SMALL),
+            foreground=self.theme_manager.colors.SUCCESS
+        )
+        status_label.pack()
+
     def create_content_area(self):
-        """Create main content area with better styling"""
-        # Content frame with padding and background
+        """Create main content area."""
+        from config import Theme
+
         self.content_frame = ttk.Frame(self.root, style="Content.TFrame")
-        self.content_frame.grid(row=0, column=1, sticky="nsew", padx=15, pady=15)
+        self.content_frame.grid(
+            row=0, column=1,
+            sticky="nsew",
+            padx=Theme.SPACING_LARGE,
+            pady=Theme.SPACING_LARGE
+        )
         self.content_frame.columnconfigure(0, weight=1)
         self.content_frame.rowconfigure(0, weight=1)
-    
-    def setup_styles(self):
-        """Setup custom styles with improved colors and contrast"""
-        style = ttk.Style()
-        
-        # Sidebar styles with better colors
-        style.configure(
-            "Sidebar.TFrame",
-            background=Colors.SIDEBAR_BG,
-            relief="flat",
-            borderwidth=0
-        )
-        
-        style.configure(
-            "SidebarHeader.TFrame",
-            background=Colors.SIDEBAR_BG,
-            relief="flat"
-        )
-        
-        style.configure(
-            "SidebarDivider.TFrame",
-            background=Colors.PRIMARY_GREEN
-        )
-        
-        # Navigation button styles
-        style.configure(
-            "SidebarNav.TButton",
-            background=Colors.SIDEBAR_BG,
-            foreground=Colors.TEXT_PRIMARY,
-            borderwidth=0,
-            focuscolor="none",
-            font=("Helvetica", 11, "normal"),
-            padding=(15, 12),
-            anchor="w"
-        )
-        
-        style.map(
-            "SidebarNav.TButton",
-            background=[
-                ("active", Colors.PRIMARY_GREEN_LIGHT),
-                ("pressed", Colors.PRIMARY_GREEN)
-            ],
-            foreground=[
-                ("active", Colors.TEXT_PRIMARY),
-                ("pressed", "white")
-            ]
-        )
-        
-        # Active navigation button style
-        style.configure(
-            "SidebarNavActive.TButton",
-            background=Colors.PRIMARY_GREEN,
-            foreground="white",
-            borderwidth=0,
-            focuscolor="none",
-            font=("Helvetica", 11, "bold"),
-            padding=(15, 12),
-            anchor="w"
-        )
-        
-        # Text label styles
-        style.configure(
-            "SidebarTitle.TLabel",
-            background=Colors.SIDEBAR_BG,
-            foreground=Colors.PRIMARY_GREEN,
-            font=("Helvetica", 18, "bold")
-        )
-        
-        style.configure(
-            "SidebarSubtitle.TLabel",
-            background=Colors.SIDEBAR_BG,
-            foreground=Colors.TEXT_SECONDARY,
-            font=("Helvetica", 11)
-        )
-        
-        style.configure(
-            "SidebarDesc.TLabel",
-            background=Colors.SIDEBAR_BG,
-            foreground=Colors.TEXT_MUTED,
-            font=("Helvetica", 8)
-        )
-        
-        style.configure(
-            "SidebarVersion.TLabel",
-            background=Colors.SIDEBAR_BG,
-            foreground=Colors.TEXT_MUTED,
-            font=("Helvetica", 8)
-        )
-        
-        # Content area style
-        style.configure(
-            "Content.TFrame",
-            background=Colors.BACKGROUND,
-            relief="flat"
-        )
-    
+
     def show_page(self, page_id):
-        """Show a specific page"""
+        """Show a specific page with enhanced error handling."""
         try:
-            # Hide current page
             if self.current_page:
                 self.current_page.pack_forget()
-            
-            # Get or create page
+
             if page_id not in self.pages:
-                page_class = next(
-                    (pc for pid, _, _, _, pc in self.nav_items if pid == page_id), 
-                    None
-                )
+                page_class = self.get_page_class(page_id)
                 if page_class:
                     self.pages[page_id] = page_class(self.content_frame, self)
                 else:
                     logger.error(f"Unknown page: {page_id}")
+                    self.show_error_page(f"Page '{page_id}' not found")
                     return
-            
-            # Show page
+
             page = self.pages[page_id]
             page.pack(fill=BOTH, expand=True)
             self.current_page = page
-            
-            # Update navigation button styles
+
             self.update_nav_buttons(page_id)
-            
-            # Refresh page data if needed
+
             if hasattr(page, 'refresh_data'):
-                page.refresh_data()
-            
-            logger.info(f"Switched to page: {page_id}")
-            
+                try:
+                    page.refresh_data()
+                except Exception as e:
+                    logger.error(f"Failed to refresh page data: {e}")
+
+            logger.info(f"Successfully showed page: {page_id}")
+
         except Exception as e:
             logger.error(f"Failed to show page {page_id}: {e}")
-            messagebox.showerror("Error", f"Failed to load page: {e}")
-    
-    def update_nav_buttons(self, active_page):
-        """Update navigation button styles"""
-        for page_id, button in self.nav_buttons.items():
-            if page_id == active_page:
-                button.configure(style="SidebarNavActive.TButton")
-            else:
-                button.configure(style="SidebarNav.TButton")
-    
-    def center_window(self):
-        """Center the window on screen"""
-        self.root.update_idletasks()
-        
-        # Get window size
-        width = self.root.winfo_width()
-        height = self.root.winfo_height()
-        
-        # Get screen size
-        screen_width = self.root.winfo_screenwidth()
-        screen_height = self.root.winfo_screenheight()
-        
-        # Calculate position
-        x = (screen_width - width) // 2
-        y = (screen_height - height) // 2
-        
-        # Set window position
-        self.root.geometry(f"{width}x{height}+{x}+{y}")
-    
-    def run(self):
-        """Run the application"""
+            self.show_error_page(f"Error loading page: {e}")
+
+    def get_page_class(self, page_id):
+        """Get page class with safe imports."""
         try:
-            # Handle window close event
+            if page_id == "home":
+                from ui.pages.home_page import HomePage
+                return HomePage
+            elif page_id == "volunteers":
+                from ui.pages.volunteer_page import VolunteerPage
+                return VolunteerPage
+            elif page_id == "appointments":
+                from ui.pages.appointments_page import AppointmentsPage
+                return AppointmentsPage
+            elif page_id == "visits":
+                from ui.pages.visits_page import VisitsPage
+                return VisitsPage
+            elif page_id == "links":
+                from ui.pages.links_page import LinksPage
+                return LinksPage
+            elif page_id == "settings":
+                from ui.pages.settings_page import SettingsPage
+                return SettingsPage
+            else:
+                return None
+        except Exception as e:
+            logger.error(f"Failed to load page class {page_id}: {e}")
+            return None
+
+    def show_error_page(self, error_message):
+        """Show error page."""
+        try:
+            if hasattr(self, 'current_page') and self.current_page:
+                self.current_page.pack_forget()
+
+            error_frame = ttk.Frame(self.content_frame)
+            error_frame.pack(fill=BOTH, expand=True)
+
+            ttk.Label(
+                error_frame,
+                text="⚠️ Error",
+                font=("Segoe UI", 18, "bold"),
+                foreground=self.theme_manager.colors.DANGER
+            ).pack(pady=50)
+
+            ttk.Label(
+                error_frame,
+                text=str(error_message),
+                font=("Segoe UI", 11)
+            ).pack()
+
+            self.current_page = error_frame
+
+        except Exception as e:
+            logger.error(f"Failed to show error page: {e}")
+
+    def update_nav_buttons(self, active_page):
+        """Update navigation button styles safely."""
+        try:
+            for page_id, button in self.nav_buttons.items():
+                if page_id == active_page:
+                    button.configure(style="SidebarActive.TButton")
+                else:
+                    button.configure(style="Sidebar.TButton")
+        except Exception as e:
+            logger.error(f"Failed to update nav buttons: {e}")
+
+    def center_window(self):
+        """Center the window on screen."""
+        try:
+            self.root.update_idletasks()
+            width = self.root.winfo_width()
+            height = self.root.winfo_height()
+            screen_width = self.root.winfo_screenwidth()
+            screen_height = self.root.winfo_screenheight()
+            x = (screen_width - width) // 2
+            y = (screen_height - height) // 2
+            self.root.geometry(f"{width}x{height}+{x}+{y}")
+        except Exception as e:
+            logger.error(f"Failed to center window: {e}")
+
+    def show_startup_error(self, error):
+        """Show startup error dialog."""
+        try:
+            import tkinter as tk
+            root = tk.Tk()
+            root.withdraw()
+            messagebox.showerror(
+                "EnergieFixers071 - Startup Error",
+                f"Failed to start application:\n\n{error}\n\nCheck logs for details."
+            )
+            root.destroy()
+        except Exception:
+            print(f"CRITICAL ERROR: Failed to start EnergieFixers071: {error}")
+
+    def run(self):
+        """Run the application with error handling."""
+        try:
             self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
-            
-            # Start main loop
+            self.root.deiconify()
             self.root.mainloop()
-            
         except Exception as e:
             logger.error(f"Application runtime error: {e}")
             raise
-    
+
     def on_closing(self):
-        """Handle application closing"""
+        """Handle application closing."""
         try:
-            # Ask for confirmation
             if messagebox.askokcancel(
-                "Quit", 
+                "Quit",
                 "Do you want to quit EnergieFixers071?"
             ):
                 logger.info("Application closing...")
@@ -369,12 +383,12 @@ class MainApplication:
         except Exception as e:
             logger.error(f"Error during application closing: {e}")
             self.root.quit()
-    
+
     def refresh_all_pages(self):
-        """Refresh all loaded pages"""
-        for page in self.pages.values():
+        """Refresh all loaded pages safely."""
+        for page_id, page in self.pages.items():
             if hasattr(page, 'refresh_data'):
                 try:
                     page.refresh_data()
                 except Exception as e:
-                    logger.error(f"Failed to refresh page: {e}")
+                    logger.error(f"Failed to refresh page {page_id}: {e}")

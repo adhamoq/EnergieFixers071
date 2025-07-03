@@ -17,3 +17,162 @@
 2025-07-03 03:15:18,346 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
 2025-07-03 03:15:19,567 - root - ERROR - Application crashed: type object 'Colors' has no attribute 'TEXT_MUTED'
 2025-07-03 03:15:19,570 - core.database - INFO - Database connection closed
+2025-07-03 03:20:13,178 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:20:13,216 - core.database - INFO - Database connection established successfully
+2025-07-03 03:20:13,222 - core.models - INFO - Created 3 database tables
+2025-07-03 03:20:13,223 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:20:15,065 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:20:15,191 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:20:15,191 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:20:15,214 - ui.root - INFO - Main application window initialized successfully
+2025-07-03 03:20:22,310 - ui.pages.links_page - WARNING - Unable to load logo: [Errno 2] No such file or directory: 'Logo-Energiefixers071.png'
+2025-07-03 03:20:22,348 - ui.root - INFO - Successfully showed page: links
+2025-07-03 03:20:25,758 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:20:25,758 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:20:39,358 - ui.pages.volunteer_page - ERROR - Failed to refresh volunteer data: 'VolunteerPage' object has no attribute 'volunteer_tree'
+2025-07-03 03:20:41,645 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:20:41,669 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:20:41,670 - ui.root - INFO - Successfully showed page: volunteers
+2025-07-03 03:21:04,742 - ui.root - INFO - Successfully showed page: appointments
+2025-07-03 03:21:06,388 - ui.root - INFO - Successfully showed page: visits
+2025-07-03 03:21:08,456 - ui.root - INFO - Successfully showed page: links
+2025-07-03 03:21:11,135 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:21:26,817 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:21:26,817 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:21:36,743 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:21:36,743 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:21:38,354 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:21:38,354 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:21:41,611 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:21:41,611 - ui.root - INFO - Successfully showed page: volunteers
+2025-07-03 03:21:49,425 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:21:53,369 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:21:53,583 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:21:53,584 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:22:06,632 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:22:06,633 - ui.root - INFO - Successfully showed page: volunteers
+2025-07-03 03:22:33,594 - ui.root - INFO - Successfully showed page: visits
+2025-07-03 03:22:34,950 - ui.root - INFO - Successfully showed page: appointments
+2025-07-03 03:22:37,168 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:22:37,168 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:22:52,986 - ui.root - INFO - Successfully showed page: visits
+2025-07-03 03:22:58,667 - ui.root - INFO - Successfully showed page: appointments
+2025-07-03 03:22:59,878 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:22:59,879 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:23:13,434 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:23:22,056 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:23:22,056 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:23:24,395 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:23:26,399 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:23:26,399 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:23:34,776 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:23:34,777 - ui.root - INFO - Successfully showed page: volunteers
+2025-07-03 03:23:36,005 - ui.root - INFO - Successfully showed page: appointments
+2025-07-03 03:23:37,071 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:23:37,072 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:24:05,833 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:24:11,994 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:24:11,994 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:24:14,100 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:24:34,730 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:24:34,730 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:24:36,647 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:26:17,966 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:26:17,966 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:33:11,952 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:33:12,000 - core.database - INFO - Database connection established successfully
+2025-07-03 03:33:12,005 - core.models - INFO - Created 3 database tables
+2025-07-03 03:33:12,005 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:33:12,410 - ui.root - INFO - Logo loaded successfully: 200x91
+2025-07-03 03:33:13,921 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:33:13,931 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:33:13,931 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:33:13,949 - ui.root - INFO - Enhanced main application window initialized successfully
+2025-07-03 03:33:23,029 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:33:23,029 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:33:23,822 - ui.root - ERROR - Failed to show page volunteers: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:24,892 - ui.root - ERROR - Failed to show page appointments: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:25,965 - ui.root - ERROR - Failed to show page volunteers: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:26,920 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:33:26,921 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:33:27,859 - ui.root - ERROR - Failed to show page volunteers: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:28,560 - ui.root - ERROR - Failed to show page appointments: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:29,248 - ui.root - ERROR - Failed to show page visits: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:30,004 - ui.pages.links_page - WARNING - Unable to load logo: [Errno 2] No such file or directory: 'Logo-Energiefixers071.png'
+2025-07-03 03:33:30,036 - ui.root - INFO - Successfully showed page: links
+2025-07-03 03:33:30,995 - ui.root - ERROR - Failed to show page settings: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:32,113 - ui.root - ERROR - Failed to show page appointments: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:32,918 - ui.root - ERROR - Failed to show page volunteers: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:33,608 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:33:33,608 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:33:34,479 - ui.root - ERROR - Failed to show page volunteers: type object 'Colors' has no attribute 'PRIMARY_GREEN'
+2025-07-03 03:33:56,871 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:33:56,919 - core.database - INFO - Database connection established successfully
+2025-07-03 03:33:56,924 - core.models - INFO - Created 3 database tables
+2025-07-03 03:33:56,925 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:33:58,430 - ui.root - ERROR - Failed to setup UI: type object 'Theme' has no attribute 'SPACING_LARGE'
+2025-07-03 03:33:58,431 - ui.root - ERROR - Failed to initialize main application: type object 'Theme' has no attribute 'SPACING_LARGE'
+2025-07-03 03:34:05,452 - ui.root - INFO - Application closing...
+2025-07-03 03:34:05,497 - __main__ - INFO - Application closed normally
+2025-07-03 03:34:05,498 - core.database - INFO - Database connection closed
+2025-07-03 03:34:39,383 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:34:39,420 - core.database - INFO - Database connection established successfully
+2025-07-03 03:34:39,426 - core.models - INFO - Created 3 database tables
+2025-07-03 03:34:39,427 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:34:41,175 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:34:41,304 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:34:41,305 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:34:41,326 - ui.root - INFO - Main application window initialized successfully
+2025-07-03 03:34:44,836 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:34:52,540 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:34:52,540 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:34:54,571 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:35:09,464 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:35:09,465 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:35:11,372 - ui.pages.volunteer_page - ERROR - Failed to refresh volunteer data: 'VolunteerPage' object has no attribute 'volunteer_tree'
+2025-07-03 03:35:12,992 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:35:13,008 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 03:35:13,008 - ui.root - INFO - Successfully showed page: volunteers
+2025-07-03 03:35:14,586 - ui.root - INFO - Successfully showed page: appointments
+2025-07-03 03:35:15,703 - ui.root - INFO - Successfully showed page: visits
+2025-07-03 03:35:17,657 - ui.pages.links_page - WARNING - Unable to load logo: [Errno 2] No such file or directory: 'Logo-Energiefixers071.png'
+2025-07-03 03:35:17,692 - ui.root - INFO - Successfully showed page: links
+2025-07-03 03:35:18,813 - ui.root - INFO - Successfully showed page: links
+2025-07-03 03:35:23,460 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:35:23,460 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:35:29,769 - ui.root - INFO - Successfully showed page: visits
+2025-07-03 03:35:37,044 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 03:35:37,044 - ui.root - INFO - Successfully showed page: home
+2025-07-03 03:35:43,562 - ui.root - INFO - Successfully showed page: settings
+2025-07-03 03:43:08,310 - ui.root - INFO - Application closing...
+2025-07-03 03:43:08,419 - __main__ - INFO - Application closed normally
+2025-07-03 03:43:08,424 - core.database - INFO - Database connection closed
+2025-07-03 03:46:14,952 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:46:14,989 - core.database - INFO - Database connection established successfully
+2025-07-03 03:46:14,994 - core.models - INFO - Created 3 database tables
+2025-07-03 03:46:14,995 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:46:15,331 - core.theme_manager - ERROR - Failed to initialize themes: ThemeDefinition.__init__() got an unexpected keyword argument 'primary'
+2025-07-03 03:46:15,331 - ui.root - ERROR - Failed to initialize main application: Failed to initialize themes
+2025-07-03 03:46:20,960 - ui.root - ERROR - Application runtime error: 'MainApplication' object has no attribute 'root'
+2025-07-03 03:46:20,961 - root - ERROR - Application crashed: 'MainApplication' object has no attribute 'root'
+2025-07-03 03:46:20,962 - core.database - INFO - Database connection closed
+2025-07-03 03:49:31,739 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:49:31,783 - core.database - INFO - Database connection established successfully
+2025-07-03 03:49:31,790 - core.models - INFO - Created 3 database tables
+2025-07-03 03:49:31,791 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:49:32,060 - core.theme_manager - ERROR - Failed to initialize themes: Colors.__init__() missing 1 required positional argument: 'active'
+2025-07-03 03:49:32,061 - ui.root - ERROR - Failed to initialize main application: Failed to initialize themes
+2025-07-03 03:49:33,815 - ui.root - ERROR - Application runtime error: 'MainApplication' object has no attribute 'root'
+2025-07-03 03:49:33,816 - root - ERROR - Application crashed: 'MainApplication' object has no attribute 'root'
+2025-07-03 03:49:33,818 - core.database - INFO - Database connection closed
+2025-07-03 03:52:59,057 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:52:59,094 - core.database - INFO - Database connection established successfully
+2025-07-03 03:52:59,100 - core.models - INFO - Created 3 database tables
+2025-07-03 03:52:59,101 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:52:59,369 - core.theme_manager - INFO - Registered theme: flatly_enhanced
+2025-07-03 03:52:59,369 - core.theme_manager - INFO - Registered theme: darkly_enhanced
+2025-07-03 03:52:59,370 - core.theme_manager - INFO - Applied theme: flatly_enhanced
+2025-07-03 03:52:59,510 - ui.root - ERROR - Failed to initialize main application: type object 'Config' has no attribute 'SIDEBAR_WIDTH'
+2025-07-03 03:53:07,761 - ui.root - INFO - Application closing...
+2025-07-03 03:53:07,766 - __main__ - INFO - Application closed normally
+2025-07-03 03:53:07,768 - core.database - INFO - Database connection closed

@@ -1,5 +1,5 @@
 """
-Configuration settings for EnergieFixers071 application.
+Enhanced configuration with custom flatly and darkly themes.
 """
 import os
 from pathlib import Path
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    """Application configuration class with all required attributes"""
+    """Enhanced application configuration"""
     
     # Application Information
     APP_NAME = "EnergieFixers071"
@@ -18,10 +18,10 @@ class Config:
     
     # Window Configuration
     WINDOW_TITLE = f"{APP_NAME} - Volunteer Management"
-    WINDOW_GEOMETRY = os.getenv('WINDOW_GEOMETRY', '1200x800')
-    MIN_WINDOW_SIZE = (800, 600)
+    WINDOW_GEOMETRY = os.getenv('WINDOW_GEOMETRY', '1400x900')
+    MIN_WINDOW_SIZE = (1000, 700)
     
-    # Directory Paths - CRITICAL: These were missing and causing the error
+    # Directory Paths
     BASE_DIR = Path(__file__).parent.parent
     DATA_DIR = BASE_DIR / "data"
     LOG_DIR = BASE_DIR / "logs"
@@ -35,7 +35,7 @@ class Config:
     LOG_FILE = LOG_DIR / "energiefixers.log"
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
     
-    # API Configuration (optional - can be empty)
+    # API Configuration
     KOBO_BASE_URL = os.getenv('KOBO_BASE_URL', 'https://kf.kobotoolbox.org')
     KOBO_API_TOKEN = os.getenv('KOBO_API_TOKEN', '')
     KOBO_FORM_ID = os.getenv('KOBO_FORM_ID', '')
@@ -49,56 +49,109 @@ class Config:
         'https://ee-eu.kobotoolbox.org/x/Evnz0R4w'
     )
     
-    # UI Theme and Colors
-    PRIMARY_COLOR = "#1D8420"  # EnergieFixers071 green
-    SECONDARY_COLOR = "#F9C440"  # Yellow accent
-    THEME_NAME = "flatly"
+    # Theme Configuration
+    DEFAULT_THEME = "flatly_enhanced"
+    AVAILABLE_THEMES = ["flatly_enhanced", "darkly_enhanced"]
     
     @classmethod
     def ensure_directories(cls):
         """Create necessary directories if they don't exist"""
-        directories = [cls.DATA_DIR, cls.LOG_DIR, cls.BACKUP_DIR, cls.ASSETS_DIR]
-        for directory in directories:
-            directory.mkdir(parents=True, exist_ok=True)
-        return True
+        try:
+            directories = [cls.DATA_DIR, cls.LOG_DIR, cls.BACKUP_DIR, cls.ASSETS_DIR]
+            for directory in directories:
+                directory.mkdir(parents=True, exist_ok=True)
+            return True
+        except Exception as e:
+            print(f"Warning: Could not create directories: {e}")
+            return False
+
+# Enhanced Theme Definitions
+ENHANCED_THEMES = {
+    "flatly_enhanced": {
+        "type": "light",
+        "colors": {
+            "primary": "#2c3e50",
+            "secondary": "#95a5a6",
+            "success": "#18bc9c",
+            "info": "#3498db",
+            "warning": "#f39c12",
+            "danger": "#e74c3c",
+            "light": "#e9ecef",
+            "dark": "#6c757d",
+            "bg": "#f8f9fa",
+            "fg": "#212529",
+            "selectbg": "#dee2e6",
+            "selectfg": "#212529",
+            "border": "#ced4da",
+            "inputfg": "#495057",
+            "inputbg": "#ffffff",
+            "active": "#1abc9c"
+        }
+    },
+    "darkly_enhanced": {
+        "type": "dark",
+        "colors": {
+            "primary": "#2c3e50",
+            "secondary": "#6c757d",
+            "success": "#18bc9c",
+            "info": "#3498db",
+            "warning": "#f39c12",
+            "danger": "#e74c3c",
+            "light": "#6c757d",
+            "dark": "#343a40",
+            "bg": "#212529",
+            "fg": "#ffffff",
+            "selectbg": "#495057",
+            "selectfg": "#ffffff",
+            "border": "#495057",
+            "inputfg": "#ffffff",
+            "inputbg": "#343a40",
+            "active": "#1abc9c"
+        }
+    }
+}
+
 
 class Colors:
-    """Complete color constants for the application"""
-    # Primary brand colors
-    PRIMARY_GREEN = Config.PRIMARY_COLOR
-    SECONDARY_YELLOW = Config.SECONDARY_COLOR
-    SECONDARY_GREEN = "#0F5132"  # Darker green variant
+    """Enhanced color palette with theme-aware properties"""
     
-    # UI Background colors
-    SIDEBAR_BG = "#F8F9FA"        # Light gray sidebar background
-    SURFACE = "#FFFFFF"           # White surface
-    BACKGROUND = "#F5F5F5"        # Light background
+    def __init__(self, theme_name="flatly_enhanced"):
+        self.theme_name = theme_name
+        self.theme_colors = ENHANCED_THEMES.get(theme_name, ENHANCED_THEMES["flatly_enhanced"])["colors"]
+        
+        # Set all colors based on current theme
+        self.PRIMARY = self.theme_colors["primary"]
+        self.SECONDARY = self.theme_colors["secondary"]
+        self.SUCCESS = self.theme_colors["success"]
+        self.INFO = self.theme_colors["info"]
+        self.WARNING = self.theme_colors["warning"]
+        self.DANGER = self.theme_colors["danger"]
+        
+        # Background colors
+        self.BACKGROUND = self.theme_colors["bg"]
+        self.SURFACE = self.theme_colors["bg"]
+        self.SIDEBAR_BG = self.theme_colors["light"]
+        
+        # Text colors
+        self.TEXT_PRIMARY = self.theme_colors["fg"]
+        self.TEXT_SECONDARY = self.theme_colors["secondary"]
+        self.TEXT_MUTED = self.theme_colors["secondary"]
+        
+        # Interface colors
+        self.BORDER = self.theme_colors["border"]
+        self.INPUT_BG = self.theme_colors["inputbg"]
+        self.INPUT_FG = self.theme_colors["inputfg"]
+        
+        # Additional UI colors
+        self.ACTIVE = self.PRIMARY
+        self.HOVER = self._darken_color(self.PRIMARY, 0.1)
     
-    # Text colors
-    TEXT_PRIMARY = "#212529"      # Dark gray text
-    TEXT_SECONDARY = "#6C757D"    # Medium gray text
-    TEXT_LIGHT = "#ADB5BD"        # Light gray text
-    
-    # Status colors
-    SUCCESS = "#28A745"           # Green success
-    WARNING = "#FFC107"           # Yellow warning
-    DANGER = "#DC3545"            # Red danger/error
-    INFO = "#17A2B8"              # Blue info
-    
-    # Interactive elements
-    BUTTON_PRIMARY = PRIMARY_GREEN
-    BUTTON_SECONDARY = "#6C757D"
-    BUTTON_SUCCESS = SUCCESS
-    BUTTON_WARNING = WARNING
-    BUTTON_DANGER = DANGER
-    BUTTON_INFO = INFO
-    
-    # Border and accent colors
-    BORDER = "#DEE2E6"            # Light border
-    ACCENT = SECONDARY_YELLOW     # Yellow accent
-    HIGHLIGHT = "#E9ECEF"         # Light highlight
-    
-    # Active/hover states
-    ACTIVE = PRIMARY_GREEN
-    HOVER = "#157347"             # Darker green for hover
+    def _darken_color(self, hex_color, factor):
+        """Darken a hex color by a factor"""
+        hex_color = hex_color.lstrip('#')
+        rgb = tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        darkened = tuple(max(0, int(c * (1 - factor))) for c in rgb)
+        return f"#{darkened[0]:02x}{darkened[1]:02x}{darkened[2]:02x}"
 
+# Initialize directories
+Config.ensure_directories()
