@@ -1,6 +1,6 @@
 """
-Enhanced configuration settings for EnergieFixers071 application.
-Complete fix for all missing attributes and classes.
+Configuration settings for EnergieFixers071 application.
+Only flatly and darkly themes with proper contrast and consistency.
 """
 import os
 from pathlib import Path
@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    """Enhanced application configuration with all required attributes"""
+    """Application configuration with only flatly and darkly themes"""
     
     # Application Information
     APP_NAME = "EnergieFixers071"
@@ -22,7 +22,7 @@ class Config:
     WINDOW_GEOMETRY = os.getenv('WINDOW_GEOMETRY', '1400x900')
     MIN_WINDOW_SIZE = (1000, 700)
     
-    # UI Configuration - ADDED MISSING ATTRIBUTES
+    # UI Configuration
     SIDEBAR_WIDTH = 300
     CONTENT_PADDING = 20
     BUTTON_WIDTH = 150
@@ -55,9 +55,7 @@ class Config:
         'https://ee-eu.kobotoolbox.org/x/Evnz0R4w'
     )
     
-    # Theme Configuration
-    PRIMARY_COLOR = "#1D8420"  # EnergieFixers071 green
-    SECONDARY_COLOR = "#F9C440"  # Yellow accent
+    # Theme Configuration - ONLY flatly and darkly
     DEFAULT_THEME = "flatly"
     AVAILABLE_THEMES = ["flatly", "darkly"]
     
@@ -74,65 +72,87 @@ class Config:
             return False
 
 class Colors:
-    """Complete color palette with ALL required attributes"""
-    
-    # Primary Brand Colors
-    PRIMARY = "#1D8420"           # EnergieFixers071 Green
-    PRIMARY_GREEN = "#1D8420"     # Alias for compatibility
-    PRIMARY_GREEN_LIGHT = "#28A745"  # Light green variant - ADDED MISSING
-    PRIMARY_DARK = "#0F5132"      # Dark green variant
-    
-    SECONDARY = "#F9C440"         # EnergieFixers071 Yellow
-    SECONDARY_YELLOW = "#F9C440"  # Alias for compatibility
-    SECONDARY_GREEN = "#0F5132"   # Darker green variant
-    ACCENT = "#F9C440"            # Accent color
-    
-    # Background Colors
-    BACKGROUND = "#F8F9FA"        # Main background (less white)
-    SURFACE = "#F2F2F2"           # Surface background
-    SIDEBAR_BG = "#F8F9FA"        # Sidebar background
-    CONTENT_BG = "#F2F2F2"        # Content area background
-    
-    # Text Colors - ADDED ALL MISSING VARIANTS
-    TEXT_PRIMARY = "#212529"      # Primary text (dark)
-    TEXT_SECONDARY = "#6C757D"    # Secondary text (medium)
-    TEXT_MUTED = "#ADB5BD"        # Muted text (light) - ADDED MISSING
-    TEXT_LIGHT = "#E9ECEF"        # Very light text
-    TEXT_WHITE = "#FFFFFF"        # White text
-    TEXT_DARK = "#212529"         # Dark text
-    
-    # Status Colors
-    SUCCESS = "#28A745"           # Success green
-    WARNING = "#FFC107"           # Warning yellow
-    DANGER = "#DC3545"            # Danger red
-    INFO = "#17A2B8"              # Info blue
-    
-    # Interactive Elements
-    BUTTON_PRIMARY = PRIMARY_GREEN
-    BUTTON_SECONDARY = "#6C757D"
-    BUTTON_SUCCESS = SUCCESS
-    BUTTON_WARNING = WARNING
-    BUTTON_DANGER = DANGER
-    BUTTON_INFO = INFO
-    
-    # Border and Outline Colors
-    BORDER = "#DEE2E6"            # Standard border
-    HIGHLIGHT = "#E9ECEF"         # Light highlight
-    
-    # State Colors
-    ACTIVE = PRIMARY              # Active state
-    HOVER = "#157347"             # Hover state
-    
-    @classmethod
-    def get_all_colors(cls):
-        """Get all color attributes as dictionary"""
-        return {k: v for k, v in cls.__dict__.items() 
-                if not k.startswith('_') and isinstance(v, str) and v.startswith('#')}
+    # ─── Brand constants (always available) ────────────────────────
+    PRIMARY_GREEN     = "#1D8420"
+    SECONDARY_YELLOW  = "#F9C440"
+
+    # ─── Global fall-backs so class access never crashes ───────────
+    PRIMARY           = "#2c3e50"
+    SECONDARY         = "#95a5a6"
+    SUCCESS           = "#18bc9c"
+    INFO              = "#3498db"
+    WARNING           = "#f39c12"
+    DANGER            = "#e74c3c"
+    TEXT_PRIMARY      = "#212529"
+    TEXT_SECONDARY    = "#6c757d"
+    TEXT_MUTED        = "#adb5bd"
+    BORDER            = "#dee2e6"
+    INPUT_BG          = "#ffffff"
+    INPUT_FG          = "#495057"
+    BACKGROUND        = "#f8f9fa"
+    SIDEBAR_BG        = "#e9ecef"
+    SURFACE           = "#f1f3f4"
+    CONTENT_BG        = "#f8f9fa"
+
+    # ─── Theme-specific overrides ──────────────────────────────────
+    def __init__(self, theme_name: str = "flatly"):
+        self.theme_name = theme_name
+
+        if theme_name == "flatly":
+            self.PRIMARY   = "#2c3e50"
+            self.SECONDARY = "#95a5a6"
+            self.SUCCESS   = "#19fccf"
+            self.INFO      = "#3498db"
+            self.WARNING   = "#f39c12"
+            self.DANGER    = "#e74c3c"
+            self.BACKGROUND = "#f8f9fa"
+            self.SURFACE    = "#f1f3f4"
+            self.SIDEBAR_BG = "#e9ecef"
+            self.CONTENT_BG = "#f8f9fa"
+            self.TEXT_PRIMARY   = "#212529"
+            self.TEXT_SECONDARY = "#6c757d"
+            self.TEXT_MUTED     = "#adb5bd"
+            self.BORDER   = "#dee2e6"
+            self.INPUT_BG = "#ffffff"
+            self.INPUT_FG = "#495057"
+
+        else:  # darkly
+            self.PRIMARY   = "#375a7f"
+            self.SECONDARY = "#444444"
+            self.SUCCESS   = "#00bc8c"
+            self.INFO      = "#3498db"
+            self.WARNING   = "#f39c12"
+            self.DANGER    = "#e74c3c"
+            self.BACKGROUND = "#222222"
+            self.SURFACE    = "#303030"
+            self.SIDEBAR_BG = "#2b2b2b"
+            self.CONTENT_BG = "#222222"
+            self.TEXT_PRIMARY   = "#ffffff"
+            self.TEXT_SECONDARY = "#adb5bd"
+            self.TEXT_MUTED     = "#6c757d"
+            self.BORDER   = "#444444"
+            self.INPUT_BG = "#495057"
+            self.INPUT_FG = "#ffffff"
+
+        # Common dynamic colours
+        self.ACTIVE = self.PRIMARY
+        self.HOVER  = self._tint(self.PRIMARY, 0.1)
+
+    def _tint(self, hex_color: str, amt: float) -> str:
+        """Lighten for dark theme or darken for light."""
+        hex_color = hex_color.lstrip('#')
+        r, g, b = (int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        if self.theme_name == "darkly":
+            r, g, b = (min(255, int(c + (255 - c) * amt)) for c in (r, g, b))
+        else:
+            r, g, b = (max(0, int(c * (1 - amt))) for c in (r, g, b))
+        return f"#{r:02x}{g:02x}{b:02x}"
+
 
 class Theme:
-    """Theme configuration class - ADDED MISSING CLASS"""
+    """Consistent theme configuration for both flatly and darkly"""
     
-    # Font Configuration
+    # Font Configuration - IDENTICAL for both themes
     FONT_FAMILY = "Segoe UI"
     FONT_SIZE_SMALL = 9
     FONT_SIZE_NORMAL = 11
@@ -140,20 +160,20 @@ class Theme:
     FONT_SIZE_HEADER = 18
     FONT_SIZE_TITLE = 24
     
-    # Spacing Configuration
+    # Spacing Configuration - IDENTICAL for both themes
     SPACING_SMALL = 5
     SPACING_MEDIUM = 10
     SPACING_LARGE = 20
     SPACING_XLARGE = 30
     
-    # UI Configuration
+    # Layout Configuration - IDENTICAL for both themes
     SIDEBAR_WIDTH = Config.SIDEBAR_WIDTH
     CONTENT_PADDING = Config.CONTENT_PADDING
     BUTTON_WIDTH = Config.BUTTON_WIDTH
     
-    # Border Configuration
+    # Border Configuration - IDENTICAL for both themes
     BORDER_RADIUS = 4
     BORDER_WIDTH = 1
 
-# Initialize directories on module import
+# Initialize directories
 Config.ensure_directories()
