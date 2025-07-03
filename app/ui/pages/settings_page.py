@@ -171,10 +171,7 @@ class SettingsPage(ttk.Frame):
             try:
                 # Use the app's theme change method if available
                 self.app.change_theme(new_theme)
-                messagebox.showinfo(
-                    "Theme Changed", 
-                    f"Theme changed to {new_theme.title()} mode.\n\nSome elements may require an app restart to fully update."
-                )
+               
             except Exception as e:
                 messagebox.showerror("Theme Error", f"Failed to change theme: {e}")
                 # Reset to previous theme
@@ -184,10 +181,7 @@ class SettingsPage(ttk.Frame):
             # Fallback: direct theme application
             try:
                 self.app.root.style.theme_use(new_theme)
-                messagebox.showinfo(
-                    "Theme Changed", 
-                    f"Theme changed to {new_theme.title()} mode."
-                )
+                
             except Exception as e:
                 messagebox.showerror("Theme Error", f"Could not apply theme: {e}")
 

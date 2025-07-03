@@ -8,6 +8,8 @@ import tkinter as tk
 from tkinter import messagebox
 import logging
 from config import Config, Colors, Theme
+from pathlib import Path
+from PIL import Image, ImageTk
 
 logger = logging.getLogger(__name__)
 
@@ -102,20 +104,35 @@ class MainApplication:
 
     
     def create_sidebar_header(self):
-        """Create sidebar header"""
+        """Create sidebar header with logo"""
+        from pathlib import Path
+        from PIL import Image, ImageTk
+
         header_frame = ttk.Frame(self.sidebar)
         header_frame.pack(fill=X, padx=15, pady=20)
-        
-        # Application title
-        title_label = ttk.Label(
-            header_frame,
-            text="EnergieFixers071",
-            font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_LARGE, "bold"),
-            foreground=self.colors.PRIMARY_GREEN
-        )
-        title_label.pack()
-        
-        # Subtitle
+
+        # Load and display the logo from root/assets
+        logo_path = Path(__file__).resolve().parents[2] / "assets" / "Logo-Energiefixers071.png"
+        try:
+            logo_image = Image.open(logo_path)
+            logo_image = logo_image.resize((200, 100), Image.Resampling.LANCZOS)
+            self.logo_photo = ImageTk.PhotoImage(logo_image)
+            logo_label = ttk.Label(
+                header_frame,
+                image=self.logo_photo,
+                background=self.colors.SIDEBAR_BG
+            )
+            logo_label.pack(pady=(0, 10))
+        except Exception as e:
+            # Fallback to text if logo fails to load
+            title_label = ttk.Label(
+                header_frame,
+                text="EnergieFixers071",
+                font=(Theme.FONT_FAMILY, Theme.FONT_SIZE_LARGE, "bold"),
+                foreground=self.colors.PRIMARY_GREEN
+            )
+            title_label.pack()
+
         subtitle_label = ttk.Label(
             header_frame,
             text="Volunteer Management",
@@ -123,10 +140,12 @@ class MainApplication:
             foreground=self.colors.TEXT_SECONDARY
         )
         subtitle_label.pack(pady=(0, 5))
+
+
     
-    def change_theme(self):
+    def change_theme(self, new_theme=None):
         """Change between flatly and darkly themes"""
-        new_theme = self.theme_var.get()
+        # new_theme = self.theme_var.get()
         
         if new_theme != self.current_theme and new_theme in Config.AVAILABLE_THEMES:
             try:

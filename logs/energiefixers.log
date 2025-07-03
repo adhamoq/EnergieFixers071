@@ -462,3 +462,256 @@
 2025-07-03 19:20:25,945 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
 2025-07-03 19:21:10,428 - __main__ - INFO - Application closed normally
 2025-07-03 19:21:10,431 - core.database - INFO - Database connection closed
+2025-07-03 20:36:17,347 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:36:17,615 - core.database - INFO - Database connection established successfully
+2025-07-03 20:36:17,622 - core.models - INFO - Created 3 database tables
+2025-07-03 20:36:17,623 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:36:21,224 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:36:21,363 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:36:21,395 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:36:26,413 - __main__ - INFO - Application closed normally
+2025-07-03 20:36:26,416 - core.database - INFO - Database connection closed
+2025-07-03 20:38:53,495 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:38:53,536 - core.database - INFO - Database connection established successfully
+2025-07-03 20:38:53,542 - core.models - INFO - Created 3 database tables
+2025-07-03 20:38:53,543 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:38:55,486 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:38:55,611 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:38:55,633 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:39:07,346 - __main__ - INFO - Application closed normally
+2025-07-03 20:39:07,348 - core.database - INFO - Database connection closed
+2025-07-03 20:40:02,970 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:40:03,009 - core.database - INFO - Database connection established successfully
+2025-07-03 20:40:03,016 - core.models - INFO - Created 3 database tables
+2025-07-03 20:40:03,017 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:40:05,083 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:40:05,209 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:40:05,231 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:41:35,733 - __main__ - INFO - Application closed normally
+2025-07-03 20:41:35,736 - core.database - INFO - Database connection closed
+2025-07-03 20:41:52,468 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:41:52,508 - core.database - INFO - Database connection established successfully
+2025-07-03 20:41:52,515 - core.models - INFO - Created 3 database tables
+2025-07-03 20:41:52,516 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:41:54,464 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:41:54,598 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:41:54,619 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:42:34,625 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:42:34,672 - core.database - INFO - Database connection established successfully
+2025-07-03 20:42:34,678 - core.models - INFO - Created 3 database tables
+2025-07-03 20:42:34,679 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:42:36,636 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:42:36,762 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:42:36,784 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:42:45,108 - __main__ - INFO - Application closed normally
+2025-07-03 20:42:45,111 - core.database - INFO - Database connection closed
+2025-07-03 20:43:19,320 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:43:19,360 - core.database - INFO - Database connection established successfully
+2025-07-03 20:43:19,366 - core.models - INFO - Created 3 database tables
+2025-07-03 20:43:19,367 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:43:21,309 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:43:21,436 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:43:21,460 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:43:25,746 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 20:43:31,788 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 20:43:38,818 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 20:47:25,532 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:47:25,580 - core.database - INFO - Database connection established successfully
+2025-07-03 20:47:25,587 - core.models - INFO - Created 3 database tables
+2025-07-03 20:47:25,588 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:47:27,513 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:47:27,639 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:47:27,660 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:47:32,265 - __main__ - INFO - Application closed normally
+2025-07-03 20:47:32,267 - core.database - INFO - Database connection closed
+2025-07-03 20:51:56,606 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 20:51:56,683 - core.database - INFO - Database connection established successfully
+2025-07-03 20:51:56,688 - core.models - INFO - Created 3 database tables
+2025-07-03 20:51:56,689 - core.database - INFO - Database initialized successfully at c:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 20:51:58,702 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:51:58,825 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:51:58,847 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 20:52:06,508 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 20:52:11,608 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 20:52:13,674 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:52:23,328 - ui.pages.volunteer_page - ERROR - Failed to refresh volunteer data: 'VolunteerPage' object has no attribute 'volunteer_tree'
+2025-07-03 20:52:25,760 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:52:25,784 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:57:43,788 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:57:44,787 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:57:45,673 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:57:47,237 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:58:13,488 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:58:14,500 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:58:19,787 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 20:58:21,704 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:59:25,600 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 20:59:28,168 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 21:00:00,967 - ui.pages.volunteer_page - INFO - Loaded 7 volunteers
+2025-07-03 21:06:33,349 - ui.pages.volunteer_page - INFO - Created new volunteer: Adham
+2025-07-03 21:06:35,687 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 21:19:19,119 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 21:19:20,694 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 21:19:21,851 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 21:19:22,845 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 21:19:24,150 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 21:19:33,407 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 21:19:35,011 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 21:21:11,008 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 21:21:13,175 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 21:28:49,763 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 21:28:54,006 - ui.pages.links_page - WARNING - Unable to load logo: [Errno 2] No such file or directory: 'Logo-Energiefixers071.png'
+2025-07-03 21:28:55,622 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:21:38,799 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 22:21:38,857 - core.database - INFO - Database connection established successfully
+2025-07-03 22:21:38,891 - core.models - INFO - Created 3 database tables
+2025-07-03 22:21:38,892 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 22:21:40,920 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-03 22:21:40,922 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 22:21:41,046 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-03 22:21:41,047 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 22:21:41,068 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 22:21:44,599 - ui.pages.volunteer_page - ERROR - Failed to refresh volunteer data: 'VolunteerPage' object has no attribute 'scrollable_frame'
+2025-07-03 22:21:51,364 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:21:51,880 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:21:57,994 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:21:57,995 - ui.pages.volunteer_page - INFO - Selected volunteer: Adham
+2025-07-03 22:22:11,433 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:11,433 - ui.pages.volunteer_page - INFO - Selected volunteer: Adham
+2025-07-03 22:22:19,665 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:22:22,712 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:22,712 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:28,339 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:28,339 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:30,607 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:22:34,026 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:34,026 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:37,751 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:37,751 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:38,026 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:38,027 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:38,920 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:38,921 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:40,613 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:40,614 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:22:42,443 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:22:42,443 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:23:14,483 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:23:22,918 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:23:22,919 - ui.pages.volunteer_page - INFO - Selected volunteer: Carlos Rodriguez
+2025-07-03 22:23:26,037 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:24:48,105 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:24:48,106 - ui.root - INFO - Changed theme to: darkly
+2025-07-03 22:24:50,802 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:26:00,477 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:26:00,478 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:26:01,773 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:26:01,773 - ui.pages.volunteer_page - INFO - Selected volunteer: Carlos Rodriguez
+2025-07-03 22:27:23,343 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:27:23,343 - ui.pages.volunteer_page - INFO - Selected volunteer: Adham
+2025-07-03 22:27:24,906 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:27:24,906 - ui.pages.volunteer_page - INFO - Selected volunteer: Ahmed Hassan
+2025-07-03 22:27:44,480 - ui.pages.volunteer_page - ERROR - Failed to update statistics: no such column: t1.volunteer_2_id
+2025-07-03 22:27:44,481 - ui.pages.volunteer_page - INFO - Selected volunteer: Adham
+2025-07-03 22:34:49,439 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:34:49,439 - ui.root - INFO - Changed theme to: flatly
+2025-07-03 22:34:50,945 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:45:56,650 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 22:45:56,700 - core.database - INFO - Database connection established successfully
+2025-07-03 22:45:56,707 - core.models - INFO - Created 3 database tables
+2025-07-03 22:45:56,708 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 22:45:58,733 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-03 22:45:58,734 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 22:45:58,858 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-03 22:45:58,859 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-03 22:45:58,878 - ui.root - INFO - Application initialized with flatly theme
+2025-07-03 22:46:02,362 - ui.pages.volunteer_page - ERROR - Failed to refresh volunteer data: 'VolunteerPage' object has no attribute 'scrollable_frame'
+2025-07-03 22:46:04,786 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,790 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,888 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,892 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,918 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,923 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,935 - ui.pages.volunteer_page - ERROR - Failed to get visit count for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,938 - ui.pages.volunteer_page - ERROR - Failed to get last visit for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,950 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,953 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,966 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,969 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,982 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,985 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,996 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:04,999 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,140 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:46:05,175 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,178 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,189 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,192 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,203 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,208 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,219 - ui.pages.volunteer_page - ERROR - Failed to get visit count for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,223 - ui.pages.volunteer_page - ERROR - Failed to get last visit for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,235 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,238 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,250 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,254 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,265 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,269 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,280 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,284 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:05,628 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:46:28,703 - ui.root - ERROR - Failed to show page visits: 'ModelSelect' object has no attribute 'avg'
+2025-07-03 22:46:38,029 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,033 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,045 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,048 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,061 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,064 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,077 - ui.pages.volunteer_page - ERROR - Failed to get visit count for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,080 - ui.pages.volunteer_page - ERROR - Failed to get last visit for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,093 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,097 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,109 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,113 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,126 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,130 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,141 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,144 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:46:38,338 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:47:30,105 - __main__ - INFO - Application closed normally
+2025-07-03 22:47:30,113 - core.database - INFO - Database connection closed
+2025-07-03 22:47:32,873 - ui.root - ERROR - Failed to show page visits: 'ModelSelect' object has no attribute 'avg'
+2025-07-03 22:47:56,414 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,417 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,431 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,435 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,449 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,453 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,466 - ui.pages.volunteer_page - ERROR - Failed to get visit count for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,470 - ui.pages.volunteer_page - ERROR - Failed to get last visit for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,482 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,486 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,498 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,503 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,515 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,519 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,531 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,535 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:47:56,721 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-03 22:47:57,996 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:47:57,999 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Adham: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,011 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,014 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Ahmed Hassan: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,026 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,030 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Carlos Rodriguez: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,044 - ui.pages.volunteer_page - ERROR - Failed to get visit count for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,048 - ui.pages.volunteer_page - ERROR - Failed to get last visit for David Okafor: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,059 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,064 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Emma de Vries: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,075 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,078 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Jan van der Berg: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,090 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,094 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Maria Santos: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,104 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,108 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
+2025-07-03 22:47:58,299 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
