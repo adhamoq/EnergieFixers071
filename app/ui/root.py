@@ -6,12 +6,12 @@ from ttkbootstrap.constants import *
 import tkinter as tk
 from tkinter import messagebox
 from config import Config, Colors
-from ui.pages.home_page import HomePage
-from ui.pages.volunteer_page import VolunteerPage
-from ui.pages.appointments_page import AppointmentsPage
-from ui.pages.visits_page import VisitsPage
-from ui.pages.links_page import LinksPage
-from ui.pages.settings_page import SettingsPage
+from ui.pages.home import HomePage
+from ui.pages.volunteer import VolunteerPage
+from ui.pages.appointments import AppointmentsPage
+from ui.pages.visits import VisitsPage
+from ui.pages.links import LinksPage
+from ui.pages.settings import SettingsPage
 import logging
 
 logger = logging.getLogger(__name__)
