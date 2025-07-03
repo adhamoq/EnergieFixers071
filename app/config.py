@@ -20,17 +20,30 @@ class Config:
     WINDOW_GEOMETRY = "1200x800"
     MIN_WINDOW_SIZE = (800, 600)
     
-    # Database settings
-    DATABASE_PATH = Path("data/energiefixers.db")
-    DATABASE_PATH.parent.mkdir(exist_ok=True)
+    # Paths
+    APP_DIR = Path(__file__).parent
+    ROOT_DIR = APP_DIR.parent
+    DATA_DIR = ROOT_DIR / "data"
+    LOG_DIR = ROOT_DIR / "logs"
     
-    # API settings
+    # Ensure directories exist
+    DATA_DIR.mkdir(exist_ok=True)
+    LOG_DIR.mkdir(exist_ok=True)
+    
+    # Database settings
+    DATABASE_PATH = DATA_DIR / "energiefixers.db"
+    
+    # API settings (optional - app works without them)
     KOBO_BASE_URL = os.getenv("KOBO_BASE_URL", "https://kf.kobotoolbox.org")
     KOBO_API_TOKEN = os.getenv("KOBO_API_TOKEN", "")
     KOBO_FORM_ID = os.getenv("KOBO_FORM_ID", "")
     
     CALENDLY_API_TOKEN = os.getenv("CALENDLY_API_TOKEN", "")
     CALENDLY_USER_URI = os.getenv("CALENDLY_USER_URI", "")
+    
+    # Logging settings
+    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+    LOG_FILE = LOG_DIR / "energiefixers.log"
     
     # Debug mode
     DEBUG = os.getenv("DEBUG", "False").lower() == "true"

@@ -1,6 +1,5 @@
 """
-Link Generator page - generates pre-filled KoboToolbox form links.
-Direct integration of the existing AutoEnergie.py functionality.
+Link Generator page - integrates your existing AutoEnergie.py functionality
 """
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
@@ -18,9 +17,6 @@ class LinksPage(ttk.Frame):
     def __init__(self, parent, app):
         super().__init__(parent)
         self.app = app
-        
-        # Configure the frame to match original window styling
-        self.configure(style="TFrame")
         
         # Initialize variables exactly like original
         self.link_var = tk.StringVar()
