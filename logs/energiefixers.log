@@ -176,3 +176,14 @@
 2025-07-03 03:53:07,761 - ui.root - INFO - Application closing...
 2025-07-03 03:53:07,766 - __main__ - INFO - Application closed normally
 2025-07-03 03:53:07,768 - core.database - INFO - Database connection closed
+2025-07-03 03:55:57,919 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-03 03:55:57,955 - core.database - INFO - Database connection established successfully
+2025-07-03 03:55:57,961 - core.models - INFO - Created 3 database tables
+2025-07-03 03:55:57,962 - core.database - INFO - Database initialized successfully at C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\data\energiefixers.db
+2025-07-03 03:55:58,220 - core.theme_manager - INFO - Registered theme: flatly_enhanced
+2025-07-03 03:55:58,220 - core.theme_manager - INFO - Registered theme: darkly_enhanced
+2025-07-03 03:55:58,221 - core.theme_manager - INFO - Applied theme: flatly_enhanced
+2025-07-03 03:55:58,352 - ui.root - ERROR - Failed to initialize main application: cannot import name 'Theme' from 'config' (C:\Users\adham\PGXPO Stuff\EnergieFixers071\EnergieFixers071\app\config.py)
+2025-07-03 03:56:08,486 - ui.root - INFO - Application closing...
+2025-07-03 03:56:08,495 - __main__ - INFO - Application closed normally
+2025-07-03 03:56:08,497 - core.database - INFO - Database connection closed

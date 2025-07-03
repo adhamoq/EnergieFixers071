@@ -20,6 +20,12 @@ class Config:
     WINDOW_TITLE = f"{APP_NAME} - Volunteer Management"
     WINDOW_GEOMETRY = os.getenv('WINDOW_GEOMETRY', '1400x900')
     MIN_WINDOW_SIZE = (1000, 700)
+
+    # Sidebar Configuration
+    SIDEBAR_WIDTH   = 300    # px
+    CONTENT_PADDING = 20     # px
+    BUTTON_WIDTH    = 150    # px
+
     
     # Directory Paths
     BASE_DIR = Path(__file__).parent.parent
