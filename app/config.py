@@ -1,5 +1,6 @@
 """
-Enhanced configuration with custom flatly and darkly themes.
+Enhanced configuration settings for EnergieFixers071 application.
+Complete fix for all missing attributes and classes.
 """
 import os
 from pathlib import Path
@@ -9,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    """Enhanced application configuration"""
+    """Enhanced application configuration with all required attributes"""
     
     # Application Information
     APP_NAME = "EnergieFixers071"
@@ -20,12 +21,11 @@ class Config:
     WINDOW_TITLE = f"{APP_NAME} - Volunteer Management"
     WINDOW_GEOMETRY = os.getenv('WINDOW_GEOMETRY', '1400x900')
     MIN_WINDOW_SIZE = (1000, 700)
-
-    # Sidebar Configuration
-    SIDEBAR_WIDTH   = 300    # px
-    CONTENT_PADDING = 20     # px
-    BUTTON_WIDTH    = 150    # px
-
+    
+    # UI Configuration - ADDED MISSING ATTRIBUTES
+    SIDEBAR_WIDTH = 300
+    CONTENT_PADDING = 20
+    BUTTON_WIDTH = 150
     
     # Directory Paths
     BASE_DIR = Path(__file__).parent.parent
@@ -56,8 +56,10 @@ class Config:
     )
     
     # Theme Configuration
-    DEFAULT_THEME = "flatly_enhanced"
-    AVAILABLE_THEMES = ["flatly_enhanced", "darkly_enhanced"]
+    PRIMARY_COLOR = "#1D8420"  # EnergieFixers071 green
+    SECONDARY_COLOR = "#F9C440"  # Yellow accent
+    DEFAULT_THEME = "flatly"
+    AVAILABLE_THEMES = ["flatly", "darkly"]
     
     @classmethod
     def ensure_directories(cls):
@@ -71,93 +73,87 @@ class Config:
             print(f"Warning: Could not create directories: {e}")
             return False
 
-# Enhanced Theme Definitions
-ENHANCED_THEMES = {
-    "flatly_enhanced": {
-        "type": "light",
-        "colors": {
-            "primary": "#2c3e50",
-            "secondary": "#95a5a6",
-            "success": "#18bc9c",
-            "info": "#3498db",
-            "warning": "#f39c12",
-            "danger": "#e74c3c",
-            "light": "#e9ecef",
-            "dark": "#6c757d",
-            "bg": "#f8f9fa",
-            "fg": "#212529",
-            "selectbg": "#dee2e6",
-            "selectfg": "#212529",
-            "border": "#ced4da",
-            "inputfg": "#495057",
-            "inputbg": "#ffffff",
-            "active": "#1abc9c"
-        }
-    },
-    "darkly_enhanced": {
-        "type": "dark",
-        "colors": {
-            "primary": "#2c3e50",
-            "secondary": "#6c757d",
-            "success": "#18bc9c",
-            "info": "#3498db",
-            "warning": "#f39c12",
-            "danger": "#e74c3c",
-            "light": "#6c757d",
-            "dark": "#343a40",
-            "bg": "#212529",
-            "fg": "#ffffff",
-            "selectbg": "#495057",
-            "selectfg": "#ffffff",
-            "border": "#495057",
-            "inputfg": "#ffffff",
-            "inputbg": "#343a40",
-            "active": "#1abc9c"
-        }
-    }
-}
-
-
 class Colors:
-    """Enhanced color palette with theme-aware properties"""
+    """Complete color palette with ALL required attributes"""
     
-    def __init__(self, theme_name="flatly_enhanced"):
-        self.theme_name = theme_name
-        self.theme_colors = ENHANCED_THEMES.get(theme_name, ENHANCED_THEMES["flatly_enhanced"])["colors"]
-        
-        # Set all colors based on current theme
-        self.PRIMARY = self.theme_colors["primary"]
-        self.SECONDARY = self.theme_colors["secondary"]
-        self.SUCCESS = self.theme_colors["success"]
-        self.INFO = self.theme_colors["info"]
-        self.WARNING = self.theme_colors["warning"]
-        self.DANGER = self.theme_colors["danger"]
-        
-        # Background colors
-        self.BACKGROUND = self.theme_colors["bg"]
-        self.SURFACE = self.theme_colors["bg"]
-        self.SIDEBAR_BG = self.theme_colors["light"]
-        
-        # Text colors
-        self.TEXT_PRIMARY = self.theme_colors["fg"]
-        self.TEXT_SECONDARY = self.theme_colors["secondary"]
-        self.TEXT_MUTED = self.theme_colors["secondary"]
-        
-        # Interface colors
-        self.BORDER = self.theme_colors["border"]
-        self.INPUT_BG = self.theme_colors["inputbg"]
-        self.INPUT_FG = self.theme_colors["inputfg"]
-        
-        # Additional UI colors
-        self.ACTIVE = self.PRIMARY
-        self.HOVER = self._darken_color(self.PRIMARY, 0.1)
+    # Primary Brand Colors
+    PRIMARY = "#1D8420"           # EnergieFixers071 Green
+    PRIMARY_GREEN = "#1D8420"     # Alias for compatibility
+    PRIMARY_GREEN_LIGHT = "#28A745"  # Light green variant - ADDED MISSING
+    PRIMARY_DARK = "#0F5132"      # Dark green variant
     
-    def _darken_color(self, hex_color, factor):
-        """Darken a hex color by a factor"""
-        hex_color = hex_color.lstrip('#')
-        rgb = tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
-        darkened = tuple(max(0, int(c * (1 - factor))) for c in rgb)
-        return f"#{darkened[0]:02x}{darkened[1]:02x}{darkened[2]:02x}"
+    SECONDARY = "#F9C440"         # EnergieFixers071 Yellow
+    SECONDARY_YELLOW = "#F9C440"  # Alias for compatibility
+    SECONDARY_GREEN = "#0F5132"   # Darker green variant
+    ACCENT = "#F9C440"            # Accent color
+    
+    # Background Colors
+    BACKGROUND = "#F8F9FA"        # Main background (less white)
+    SURFACE = "#F2F2F2"           # Surface background
+    SIDEBAR_BG = "#F8F9FA"        # Sidebar background
+    CONTENT_BG = "#F2F2F2"        # Content area background
+    
+    # Text Colors - ADDED ALL MISSING VARIANTS
+    TEXT_PRIMARY = "#212529"      # Primary text (dark)
+    TEXT_SECONDARY = "#6C757D"    # Secondary text (medium)
+    TEXT_MUTED = "#ADB5BD"        # Muted text (light) - ADDED MISSING
+    TEXT_LIGHT = "#E9ECEF"        # Very light text
+    TEXT_WHITE = "#FFFFFF"        # White text
+    TEXT_DARK = "#212529"         # Dark text
+    
+    # Status Colors
+    SUCCESS = "#28A745"           # Success green
+    WARNING = "#FFC107"           # Warning yellow
+    DANGER = "#DC3545"            # Danger red
+    INFO = "#17A2B8"              # Info blue
+    
+    # Interactive Elements
+    BUTTON_PRIMARY = PRIMARY_GREEN
+    BUTTON_SECONDARY = "#6C757D"
+    BUTTON_SUCCESS = SUCCESS
+    BUTTON_WARNING = WARNING
+    BUTTON_DANGER = DANGER
+    BUTTON_INFO = INFO
+    
+    # Border and Outline Colors
+    BORDER = "#DEE2E6"            # Standard border
+    HIGHLIGHT = "#E9ECEF"         # Light highlight
+    
+    # State Colors
+    ACTIVE = PRIMARY              # Active state
+    HOVER = "#157347"             # Hover state
+    
+    @classmethod
+    def get_all_colors(cls):
+        """Get all color attributes as dictionary"""
+        return {k: v for k, v in cls.__dict__.items() 
+                if not k.startswith('_') and isinstance(v, str) and v.startswith('#')}
 
-# Initialize directories
+class Theme:
+    """Theme configuration class - ADDED MISSING CLASS"""
+    
+    # Font Configuration
+    FONT_FAMILY = "Segoe UI"
+    FONT_SIZE_SMALL = 9
+    FONT_SIZE_NORMAL = 11
+    FONT_SIZE_LARGE = 14
+    FONT_SIZE_HEADER = 18
+    FONT_SIZE_TITLE = 24
+    
+    # Spacing Configuration
+    SPACING_SMALL = 5
+    SPACING_MEDIUM = 10
+    SPACING_LARGE = 20
+    SPACING_XLARGE = 30
+    
+    # UI Configuration
+    SIDEBAR_WIDTH = Config.SIDEBAR_WIDTH
+    CONTENT_PADDING = Config.CONTENT_PADDING
+    BUTTON_WIDTH = Config.BUTTON_WIDTH
+    
+    # Border Configuration
+    BORDER_RADIUS = 4
+    BORDER_WIDTH = 1
+
+# Initialize directories on module import
 Config.ensure_directories()
