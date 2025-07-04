@@ -162,8 +162,9 @@ class VolunteerPage(ttk.Frame):
         scrollbar.grid(row=0, column=1, sticky="ns")
         
         self.canvas.bind('<Configure>', self.on_canvas_configure)
-        self.canvas.bind_all("<MouseWheel>", self.on_mousewheel)
-        
+        self.canvas.bind("<MouseWheel>", self.on_mousewheel)        
+        self.canvas.bind("<Button-4>", self.on_mousewheel)            
+        self.canvas.bind("<Button-5>", self.on_mousewheel)        
         self.volunteer_cards = {}
     
     def on_canvas_configure(self, event):

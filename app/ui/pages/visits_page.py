@@ -9,6 +9,7 @@ from datetime import date, datetime
 from core.models import Visit, Volunteer
 from config import Colors, Theme
 import logging
+from peewee import fn
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +78,7 @@ class VisitsPage(ttk.Frame):
             (Visit.moisture_issues == True) | 
             (Visit.draft_issues == True)
         ).count()
-        avg_residents = Visit.select().avg(Visit.residents_count) or 0
+        avg_residents = Visit.select(fn.AVG(Visit.residents_count)).scalar() or 0
         
         self.create_stat_card(stats_frame, "🏠", "Total Visits", str(total_visits), self.colors.INFO, 0)
         self.create_stat_card(stats_frame, "📅", "This Month", str(this_month_visits), self.colors.SUCCESS, 1)
