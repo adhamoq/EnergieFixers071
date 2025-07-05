@@ -1,0 +1,20 @@
+# EnergieFixers071 Requirements
+# Core GUI Framework
+ttkbootstrap>=1.10.1
+
+# Database ORM
+peewee>=3.16.0
+
+# HTTP Requests for API calls
+requests>=2.31.0
+
+# Image Processing for logos and UI
+Pillow>=10.0.0
+
+# Environment variables management
+python-dotenv>=1.0.0
+
+# Development and Optional packages
+# pytest>=7.4.0          # For testing (uncomment if needed)
+# black>=23.0.0          # For code formatting (uncomment if needed)
+# flake8>=6.0.0          # For linting (uncomment if needed)

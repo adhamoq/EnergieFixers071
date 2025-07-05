@@ -890,3 +890,14 @@
 2025-07-04 19:26:56,246 - ui.pages.volunteer_page - ERROR - Failed to get visit count for Sophie Jansen: no such column: t1.volunteer_2_id
 2025-07-04 19:26:56,252 - ui.pages.volunteer_page - ERROR - Failed to get last visit for Sophie Jansen: no such column: t1.volunteer_2_id
 2025-07-04 19:26:56,494 - ui.pages.volunteer_page - INFO - Loaded 8 volunteers
+2025-07-04 20:49:37,371 - __main__ - INFO - Starting EnergieFixers071 v1.0.0
+2025-07-04 20:49:37,590 - core.database - INFO - Database connection established successfully
+2025-07-04 20:49:37,607 - core.models - INFO - Created 3 database tables
+2025-07-04 20:49:37,608 - core.database - INFO - Database initialized successfully at c:\Users\adham\PGXPO Stuff\EnergieFixers071\data\energiefixers.db
+2025-07-04 20:49:41,053 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-04 20:49:41,055 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-04 20:49:41,178 - core.models - ERROR - Failed to get recent visits: no such column: t1.volunteer_2_id
+2025-07-04 20:49:41,179 - ui.pages.home_page - INFO - Dashboard data refreshed successfully
+2025-07-04 20:49:41,225 - ui.root - INFO - Application initialized with flatly theme
+2025-07-04 20:49:44,725 - __main__ - INFO - Application closed normally
+2025-07-04 20:49:44,727 - core.database - INFO - Database connection closed
